@@ -4,12 +4,13 @@ All notable changes to this project will be documented in this file.
 
 ## [1.1.0] - 2026-02-28
 ### Added
-- **Native Implementation:** Completely rebuilt the core engine to use Antigravity's internal configuration settings instead of UI automation, resulting in instant execution with zero performance overhead.
-- **God Mode / Non-Workspace File Access:** Replaces the previous UI-based approach with a direct guide to unlock Antigravity's "Agent Non-Workspace File Access" settings seamlessly.
-- **Terminal Execution Policies:** The extension now handles `cascadeAutoExecutionPolicy` and `browserJsExecutionPolicy` natively, granting true "Turbo" mode autonomously while the extension is active.
+- Rebuilt the core engine on top of Antigravity's internal configuration API. No more UI automation.
+- TerminalGuard: active PTY monitoring that kills dangerous commands (`rm -rf /`, `mkfs`, etc.) before they execute.
+- Configurable blocked patterns via `greenlight.blockedPatterns`.
+- Antigravity-specific execution policy overrides (`cascadeAutoExecutionPolicy`, `browserJsExecutionPolicy`).
 
 ### Removed
-- Deprecated legacy UI-automation features in favor of maximum efficiency native OS hooks and setting toggles.
+- Legacy screen-based automation (OCR, accessibility hooks). Replaced by direct setting injection.
 
 ## [1.0.0] - 2026-02-26
-- Initial release introducing UI-based automation to streamline the developer experience during high-intensity agent sessions.
+- First release. Basic auto-approve toggle for agent file edits and terminal commands.
