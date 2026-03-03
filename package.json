@@ -2,7 +2,7 @@
   "name": "antigravity-greenlight",
   "displayName": "Antigravity Greenlight",
   "description": "Give your AI agent the green light — auto-accept file edits, terminal commands, and chat actions with granular control",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "publisher": "codavidgarcia",
   "author": "codavidgarcia",
   "license": "MIT",
