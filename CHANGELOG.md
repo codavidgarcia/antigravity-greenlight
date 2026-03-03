@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.2.1] - 2026-03-02
+## [1.2.2] - 2026-03-02
 ### Added
 - **Quick-pick menu:** Clicking the status bar item now opens a contextual menu instead of toggling directly. Options include enable/disable, open settings, run diagnostics, and hide the status bar.
 - **Command palette commands:** All controls are now accessible via `Cmd+Shift+P`:

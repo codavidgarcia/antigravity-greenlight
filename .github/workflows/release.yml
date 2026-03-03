@@ -48,5 +48,8 @@ jobs:
           generate_release_notes: false
 
       - name: Publish to Open VSX
-        if: ${{ secrets.OVSX_PAT != '' }}
-        run: npx ovsx publish *.vsix -p ${{ secrets.OVSX_PAT }}
+        if: env.OVSX_PAT != ''
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
+        run: npx ovsx publish *.vsix -p "$OVSX_PAT"
+        continue-on-error: true
