@@ -29,6 +29,38 @@ export function activate(context: vscode.ExtensionContext): void {
             }
         });
 
+        const enableCmd = vscode.commands.registerCommand('greenlight.enable', () => {
+            try {
+                controller?.enable();
+            } catch (err) {
+                logger.error('Enable command failed', err);
+            }
+        });
+
+        const disableCmd = vscode.commands.registerCommand('greenlight.disable', () => {
+            try {
+                controller?.disable();
+            } catch (err) {
+                logger.error('Disable command failed', err);
+            }
+        });
+
+        const showMenuCmd = vscode.commands.registerCommand('greenlight.showMenu', () => {
+            try {
+                statusBar.showMenu();
+            } catch (err) {
+                logger.error('Show menu command failed', err);
+            }
+        });
+
+        const toggleStatusBarCmd = vscode.commands.registerCommand('greenlight.toggleStatusBar', () => {
+            try {
+                statusBar.toggleVisibility();
+            } catch (err) {
+                logger.error('Toggle status bar command failed', err);
+            }
+        });
+
         const diagCmd = vscode.commands.registerCommand('greenlight.diagnostics', async () => {
             try {
                 await runDiagnostics(logger);
@@ -38,7 +70,10 @@ export function activate(context: vscode.ExtensionContext): void {
         });
 
         // ── Register disposables ───────────────────────────────────
-        context.subscriptions.push(toggleCmd, diagCmd, controller, logger);
+        context.subscriptions.push(
+            toggleCmd, enableCmd, disableCmd, showMenuCmd,
+            toggleStatusBarCmd, diagCmd, controller, logger,
+        );
 
         // ── Auto-start if configured ───────────────────────────────
         const config = settingsManager.readConfig();

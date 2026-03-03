@@ -137,6 +137,26 @@ export class Controller implements vscode.Disposable {
         }
     }
 
+    enable(): void {
+        if (this.disposed) {
+            this.log.warn('Cannot enable: controller is disposed.');
+            return;
+        }
+        if (this.state !== 'active' && this.state !== 'starting') {
+            void this.start();
+        }
+    }
+
+    disable(): void {
+        if (this.disposed) {
+            this.log.warn('Cannot disable: controller is disposed.');
+            return;
+        }
+        if (this.state !== 'inactive') {
+            this.stop();
+        }
+    }
+
     dispose(): void {
         if (this.disposed) return;
         this.disposed = true;

@@ -63,6 +63,7 @@ export interface ExtensionConfig {
     additionalAcceptCommands: string[];
     adaptivePolling: boolean;
     showNotifications: boolean;
+    showStatusBar: boolean;
     terminalProtection: boolean;
     blockedPatterns: string[];
 }

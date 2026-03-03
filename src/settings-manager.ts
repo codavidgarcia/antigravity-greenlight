@@ -36,6 +36,7 @@ export class SettingsManager implements vscode.Disposable {
             additionalAcceptCommands: cfg.get<string[]>('additionalAcceptCommands', []),
             adaptivePolling: cfg.get<boolean>('adaptivePolling', true),
             showNotifications: cfg.get<boolean>('showNotifications', true),
+            showStatusBar: cfg.get<boolean>('showStatusBar', true),
             terminalProtection: cfg.get<boolean>('terminalProtection', true),
             blockedPatterns: cfg.get<string[]>('blockedPatterns', []),
         };
